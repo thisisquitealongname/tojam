@@ -1,0 +1,24 @@
+
+<html>
+
+<body>
+
+<audio id="a" preload controls="" preload="" autoplay>
+    <source src="loop.ogg">
+</audio>
+
+
+</body>
+
+<script>
+
+document.getElementById('a').addEventListener('ended', function(){
+console.debug('looping');
+ this.currentTime = 0;
+ this.play();
+}, false);
+
+
+</script>
+
+</html>

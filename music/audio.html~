@@ -1,0 +1,25 @@
+
+<html>
+
+<body>
+<audio id="a"></audio>
+
+</body>
+
+<script>
+
+a.autoplay = true;
+a.loop = true;
+a.src = "tribal_theme.ogg"
+
+//a.autoplay = true;
+//a.
+a.load = function() {
+  alert("fired!")
+  a.currentTime = 20;
+  a.play()
+}
+
+</script>
+
+</html>
