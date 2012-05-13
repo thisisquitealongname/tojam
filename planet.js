@@ -1,6 +1,8 @@
 // a Scene that renders the world
 
 Planet = function(world) {
+  game.soundtrack.src = "flute.ogg"; //"music/tribal_theme.ogg"
+
   var playerRow = 0;
   var playerCol = 0;
 
@@ -45,6 +47,11 @@ Planet = function(world) {
       playerCol = Util.mod(playerCol, world.map.width)	
     }
     dbg.textContent = "(" + playerCol + ", " + playerRow + ")"
+    
+    //game.health -= 0.8; //debugging
+    game.health = Math.max(0, Math.min(game.health, 100))
+    if(game.health == 0)
+      game.scene = SpaceScene()
   }
 
   function updateScroll() {

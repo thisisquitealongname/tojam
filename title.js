@@ -38,7 +38,7 @@ function TitleText(text, font) {
 TitleScene = function() { 
   var title_text = TitleText("~~ WORLD _ GAME ~~")
   var starfield = Starfield()  
-  game.soundtrack.src = "title.ogg";
+  //game.soundtrack.src = "title.ogg";
 
   return {
     update: function() {

@@ -10,6 +10,7 @@
   };
 
   function loop() {
+    if(game.soundtrack.ended) game.soundtrack.play()
     game.scene.update()
     game.scene.draw();
   }
