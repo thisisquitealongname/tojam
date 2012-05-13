@@ -35,15 +35,46 @@ function TitleText(text, font) {
   return T;
 }
 
+function WheelchairSpin() {
+  var wheelchair = {};
+  
+    var x = Math.floor(Math.random*6);
+    var y = Math.floor(Math.random*5);
+  
+    var dx = Math.floor(Math.random*6);
+    var dy = Math.floor(Math.random*5);
+    
+  wheelchair.update = function () {
+    if (x < 0 || x > Gfx.screenWidth()){
+      dx = -dx
+    }
+      x += dx;
+      y += dy;
+  }
+  
+  wheelchair.draw = function () {
+    
+  var wheelchairtile = Images.getTile(46)
+
+    var ctx = Gfx.getCtx();
+    ctx.save();
+    ctx.drawImage(wheelchairtile, x, y);
+    ctx.restore();
+  }
+ return wheelchair;  
+ }
+    
 TitleScene = function() { 
   var title_text = TitleText("~~ WORLD _ GAME ~~")
-  var starfield = Starfield()  
+  var starfield = Starfield()
+  var wheelchair_spin = WheelchairSpin()
   game.soundtrack.src = "title.ogg";
 
   return {
     update: function() {
       starfield.update()
       title_text.update()
+      wheelchair_spin.update()
     },
     click: function(x,y) {
       //should move to the next scene
@@ -52,6 +83,7 @@ TitleScene = function() {
     draw: function() {
       starfield.draw();
       title_text.draw();
+      wheelchair_spin.draw();
     }
   }
 }

@@ -101,16 +101,16 @@ Planet = function(world) {
 
   function keyDown(evt) {
     if(evt.keyCode == Keys.DOM_VK_UP) {
-      scrollDY = -2;
+      scrollDY = -8;
     }   
     else if(evt.keyCode == Keys.DOM_VK_DOWN) {
-      scrollDY = 2;
+      scrollDY = 8;
     }
     else if(evt.keyCode == Keys.DOM_VK_LEFT) {
-      scrollDX = -2;
+      scrollDX = -8;
     }
     else if(evt.keyCode == Keys.DOM_VK_RIGHT) {
-      scrollDX = 2;
+      scrollDX = 8;
     }
   }
   
