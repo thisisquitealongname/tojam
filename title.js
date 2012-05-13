@@ -41,8 +41,8 @@ function WheelchairSpin() {
     var x = Math.floor(Math.random()*Gfx.screenWidth());
     var y = Math.floor(Math.random()*Gfx.screenHeight());
   
-    var dx = Math.floor(Math.random()*6);
-    var dy = Math.floor(Math.random()*5);
+    var dx = Math.floor(Math.random()*10);
+    var dy = Math.floor(Math.random()*8);
     
   wheelchair.update = function () {
     if( x < 0 ) { 
@@ -81,7 +81,7 @@ TitleScene = function() {
   var title_text = TitleText("~~ WHEELCHAIR_VULCANOLOGIST ~~")
   var starfield = Starfield()  
   var wheelchair_spin = WheelchairSpin()
-  //game.soundtrack.src = "title.ogg";
+  game.soundtrack.src = "music/WorldGameMenu_LOOP.ogg";
 
   return {
     update: function() {
