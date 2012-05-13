@@ -4,11 +4,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- protip: since this does image manipulation, it must run over http://. use python -m SimpleHTTPServer or python -m http.server 8000 in the code dir to make this happen -->
     <center>
-      <canvas width=800 height=608 id="canvas">
+      <canvas width=640 height=480 id="canvas">
         Sorry! You need a modern browser (e.g. Chrome or Firefox) to play this
         game! No flash needed though :)
       </canvas>
+      <form><textarea id="dbg" width=100 height=20></textarea></form>
     <center>
     
     <!--must be first!-->
@@ -24,6 +26,7 @@
     
     <!-- models -->
     <script src="apes.js"></script>
+    <script src="gems.js"></script>
     <script src="maps.js"></script>
     <script src="worlds.js"></script>
     
