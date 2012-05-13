@@ -14,7 +14,7 @@ function TitleText(text, font) {
       ctx.save();
       var dx = 0;
       
-      ctx.font = "54px serif";
+      ctx.font = "36px serif";
       var lens = [] //widths of each char, since doing it one by one doesn't account for natural spacing that the internal renderer would do...
       for(i=0; i<n; i++) lens.push(ctx.measureText(text[i]).width) //huh? the *2 seems to center it properly. wtffff measureText
       var total_width = Util.sum(lens)
@@ -38,15 +38,28 @@ function TitleText(text, font) {
 function WheelchairSpin() {
   var wheelchair = {};
   
-    var x = Math.floor(Math.random*6);
-    var y = Math.floor(Math.random*5);
+    var x = Math.floor(Math.random()*Gfx.screenWidth());
+    var y = Math.floor(Math.random()*Gfx.screenHeight());
   
-    var dx = Math.floor(Math.random*6);
-    var dy = Math.floor(Math.random*5);
+    var dx = Math.floor(Math.random()*6);
+    var dy = Math.floor(Math.random()*5);
     
   wheelchair.update = function () {
-    if (x < 0 || x > Gfx.screenWidth()){
+    if( x < 0 ) { 
+      x = 0;
       dx = -dx
+    }
+    if ( x > Gfx.screenWidth() ) {
+      x = Gfx.screenWidth() - 1;
+      dx = -dx
+    }
+    if ( y < 0 ) {
+      y = 0;
+      dy = -dy
+    }
+    if ( y > Gfx.screenHeight() ) {
+      y = Gfx.screenHeight() - 1;
+      dy = -dy
     }
       x += dx;
       y += dy;
@@ -65,7 +78,7 @@ function WheelchairSpin() {
  }
     
 TitleScene = function() { 
-  var title_text = TitleText("~~ WORLD _ GAME ~~")
+  var title_text = TitleText("~~ WHEELCHAIR_VULCANOLOGIST ~~")
   var starfield = Starfield()  
   var wheelchair_spin = WheelchairSpin()
   //game.soundtrack.src = "title.ogg";
